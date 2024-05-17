@@ -32,7 +32,7 @@ void setup() {
               1);
   delay(500);
   /*xTaskCreatePinnedToCore(
-              Task2code,
+             Task2code,
               "Task2",
               100000,
               NULL,
@@ -128,6 +128,17 @@ void Task1code( void *pvParameters){
 
 /*void Task2code( void *pvParameters){
   for(;;){
+      if(client){
+        IPAddress myIP = WiFi.softAPIP();
+        Client.print("AP IP address: ");
+        Client.println(myIP);
+
+        Client.println("Server started");
+      }
+    }
+  }
+  
+  }/*
       // Check if a client has connected
     WiFiClient client = server.available();
     if (!client) {
